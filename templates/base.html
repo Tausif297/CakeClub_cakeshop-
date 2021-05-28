@@ -1,0 +1,89 @@
+{% load static %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>CakeClub | {% block title %}{% endblock title %}</title>
+
+  </head>
+  <body>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="position:fixed;">
+  <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" alt="CakeClub"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav m-auto">
+    <li class="nav-items"><a class="nav-link" href="/" id="nav-link">Home</a></li>
+    <li class="nav-items"><a class="nav-link" href={% url 'cakeproductpage' %} id="nav-link">Cakes</a></li>
+    <li class="nav-items"><a class="nav-link" href="{% url 'aboutpage' %}" id="nav-link">Aboutus</a></li>
+    <li class="nav-items"><a class="nav-link" href="{% url 'contactuspage' %}" id="nav-link">Contactus</a></li>
+    </ul>
+    <ul class="navbar-nav">
+    <li class="nav-items">{% if user.is_authenticated %}
+            <div class="dropdown">
+              <button class="btn dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 18px;background:#42929d; color:white; outline:none; border:none;">
+                Welcome {{request.user}}
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="profile">Profile</a>
+                <a class="dropdown-item" href="{% url 'logoutpage' %}">Logout</a>
+              </div>
+            </div>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/login" style="margin-top: 2px; color: white;font-size: 20px;">Login</a>
+            </li>
+          {% endif %}</li>
+<li class="nav-items">
+<button type="button" class="btn btn-info mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+  Cart (<span id="cart" onclick='seeCart()'>click to see cart</span>)
+</button>
+</li>
+    </ul>
+  </div>
+</nav>
+
+{% if messages %} {% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" style="position:absolute;">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    {% endfor %} {% endif %}
+
+{% block index %}{% endblock index %}
+{% block product %}{% endblock product %}
+{% block about %}{% endblock about %}
+{% block register %}{% endblock register %}
+{% block cart %}{% endblock cart %}
+{% block checkout %}{% endblock checkout %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {% block script %}{% endblock script %}
+    <script>
+    function seeCart(){
+      window.location.href = "/products/cakes/";
+    }
+    </script>
+  </body>

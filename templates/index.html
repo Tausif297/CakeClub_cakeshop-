@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block index %}
+<section id="sec1">
+    <div class="cnt_main">
+        <h4><i class="fas fa-phone-square-alt"></i> +91 9699660346</h4>
+        <h4><i class="fas fa-phone-square-alt"></i> +91 7045042842</h4>
+        <h4><i class="fas fa-envelope"></i> zakariatausif2@gmail.com</h4>
+    </div>
+
+    <div class="main_txt">
+        <h1>Cake Club</h1>
+        <h1>We Deliver Our Best</h1>
+    </div>
+
+    <div class="main_txt2">
+        <h6>A sweet baked food made of flour,<br> liquid, eggs, and other ingredients,<br> such as raising agents and flavorings</h6>
+    </div>
+
+    <div class="main_txt3">
+        <a href="#">Order Now Some Love For Your Stomach</a>
+    </div>
+    <img src="{% static 'images/cc.png' %}" class="cc" alt="">
+</section>
+
+<section id="sec2">
+    <h1 class="text-center">Some Trendy Cakes Of Our Shop</h1>
+</section>
+
+<section id="sec3">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100 cake" src="{% static 'images/cake1.jpg' %}" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 cake" src="{% static 'images/cake2.jpg' %}" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100 cake" src="{% static 'images/cake3.jpg' %}" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+    </div>
+</section>
+
+<section id="sec4">
+  <h1 class="text-center">Mostly Ordered Choclate Cake</h1>
+</section>
+<hr>
+<section id="sec5">
+  <h1 class="text-center">Mostly Ordered Flavoured Cake</h1>
+   
+</section>
+
+<footer>
+  <div class="foot">
+    <img src="{% static 'images/logo.png' %}">
+    <h4>CakeClub | Devloped By Zakaria Tausif | </h4>
+    <h6> &copy; All right and reserved</h6>
+    <div class="social">
+      <a href='#'><i class="fab fa-facebook"></i></a>
+      <a href='#'><i class="fab fa-instagram"></i></a>
+      <a href='#'><i class="fab fa-linkedin"></i></a>
+      <a href='#'><i class="fab fa-github"></i></a>
+    </div> 
+  </div>
+</footer>
+{% endblock index %}
+

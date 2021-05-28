@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Katibeh&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Keania+One&family=Trispace:wght@300&display=swap');
+#sec1{
+    border-bottom: 1px solid #42929d;
+    width: 100%;
+    height: 90vh;
+    background: url(/static/images/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Cinzel', serif;
+    position: relative;
+    top: 77px;
+}
+.main_txt{
+    position: absolute;
+    margin-top: 10%;
+}
+.main_txt2{
+    position: absolute;
+    margin-top: 20%;
+}
+.main_txt h1{
+    transform: translate(95%,30%);
+}
+.main_txt2 h6{
+    transform: translate(129%,65%);
+}
+.cnt_main{
+    display: flex;
+    float: right;
+    border-bottom: 1px solid #42929d;
+}
+.cnt_main h4{
+    padding: 0px 40px;
+    text-transform: lowercase;
+}
+.main_txt3{
+    position: absolute;
+    margin-top: 35%;
+    width: 28%;
+    transform: translate(100%, 10%);
+}
+.main_txt3 a{
+    text-decoration: none;
+    background: #42929d;
+    color:white;
+    padding: 2%;
+    border-radius: 25px 0px;
+}
+.main_txt3 a:hover{
+    padding: 2%;
+    text-decoration: none;
+    color: white;
+    background: #9aa7b2;
+    border:1px solid #42929d;
+}
+.cc{
+    width: 22%;
+    transform: translate(340%, 50%);
+    filter: drop-shadow(-20px 11px 5px black);
+}
+.cake{
+    width: 100%;
+    height: 400px;
+}
+
+#sec2{
+    font-family: 'Katibeh', cursive;
+    font-size: 28px;
+}
+.row{
+    margin: auto;
+    padding: 2.5% 2.5% 2.5% 3.5%;
+    width: 101%;
+    margin-top: 4%;
+}
+.card-img-top{
+    height: 250px;
+}
+#sec3{
+    border: 2px solid #42929d;
+}
+#sec4{
+    font-family: 'Katibeh', cursive;
+    font-size: 28px;    
+}
+
+#sec5{
+    font-family: 'Katibeh', cursive;
+    font-size: 28px;
+}

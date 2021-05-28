@@ -1,0 +1,32 @@
+{% load static %}    
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% if messages %} {% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" style="position:absolute;">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    {% endfor %} {% endif %}
+<div class="container">
+  <div class="card">
+        <h1 class="card-title">Hello Again!</h1>
+        <small class="card-subtitle">Enter your credentials and get access</small>
+        <form class="card-form" method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+            <label for="username"><i class="fas fa-user"></i> Username</label>
+            <div class="card-input-container">
+                <input type="text" placeholder="Enter your username" id="username" name="username">
+            </div>
+            <label for="password"><i class="fas fa-lock"></i> Password</label>
+            <div class="card-input-container">
+                <input type="password" placeholder="Enter your password" id="password" name="password">
+            </div>
+            <button class="card-button">Sign In</button>
+            <small class="card-forgot-password">Forgot your passwrod ? <a>Reset Password</a></small>
+            <small class="card-register-password">If you don't have an account | <a href="{% url 'registerpage' %}">Sign Up</a></small>
+        </form>
+    </div>
+</div>

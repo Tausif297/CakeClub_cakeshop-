@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 550;
+    transition: ease-in-out 0.5s;
+}
+.navbar{
+    font-family: 'Cinzel', serif;
+    background: #42929d;
+    width: 100%;
+    z-index: 10;
+}
+.navbar-brand{
+    margin: 0;
+    padding: 0;
+    width: 6%;
+}
+.navbar-brand img{
+    width: 65%;
+    filter: invert(1);
+}
+#nav-link{
+    color: white;
+    font-size: 20px;
+    padding: 10px 25px;
+    transition: ease-in-out 0.5s;
+}
+#nav-link:hover{
+    background: white;
+    color: #42929d;
+    border-radius: 35px;
+    transition: ease-in-out 1s;
+}
+
+.foot{
+    background: #42929d;
+    color: black;
+    border: 1px solid black;
+    width: 100%;
+    height: 15%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.foot img{
+    filter: invert(1);
+    width: 7%;
+    margin-top: 0.3%;
+}
+.foot h4{
+    color: white;
+    margin-top: 2.4%;
+    margin-left: 1%;
+}
+.foot h6{
+    margin-top: 2.8%;
+    color: white;
+}
+.social{
+    width: 15%;
+    text-align: center;
+    margin: auto;
+    margin-right: 0;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+.social a{
+    color: white;
+}
+.social a:hover{
+    color: black;
+    transition: ease-in-out;
+}
+.alert{
+    z-index: 10;
+    margin-top: 5%;
+    position: absolute;
+    width: 100%;
+}
+.btn{
+    margin-top: 3%;
+}
