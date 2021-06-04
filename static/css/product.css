@@ -1,3 +1,87 @@
-.product_sec1{
+body{
     background: linear-gradient(207deg, #42929d, transparent);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
+
+#product_sec{
+    background: url(/static/images/productbg.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 60vh;
+}
+.pr-txt{
+    font-size: 36px;
+    position: relative;
+    top: 38px;
+    color: white;
+    font-family: 'Cinzel';
+}
+.pr-txt2{
+    font-size: 36px;
+    position: absolute;
+    top: 50%;
+    color: black;
+    font-family: 'Cinzel';
+    left: 50%;
+    transform: translate(-46%,-480%);
+}
+.search-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -230%);
+    background: #42929d;
+    height: 42px;
+    border-radius: 40px;
+    padding: 1px;
+  }
+  
+  .search-box:hover > .search-text{
+    width: 240px;
+    padding: 0 6px;
+  }
+  
+  .search-box:hover > .search-btn{
+    background: #42929d;
+    color: white;
+    
+  }
+  
+  .search-btn {
+    color: white;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #42929d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+    
+  }
+  .search-btn > i {
+    font-size: 30px;
+  }
+  .search-btn > i:hover {
+    font-size: 30px;
+    text-decoration: none;
+  }
+  .search-text {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+    
+  }

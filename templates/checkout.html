@@ -1,12 +1,17 @@
 {% extends 'base.html' %} {% load static %} {% block checkout %}
-<div class="container" style="position: relative; top: 25%">
+<div class="container" style="position: relative; top: 15%">
   <div class="col">
     <h2>Step 1 - Cake Club Cart Checkout - Review Your Cart Item</h2>
     <div>
       <ul class="list-group" id="items"></ul>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page"><h5>Total of your order is :  &#x20B9;<span id="totalprice"></span></h5></li>
+      </ol>
+    </nav>
     </div>
   </div>
-  <div class="col my-5">
+  <div class="col my-5" style="bottom: 10px;">
     <h2>Step 2 - Enter Adress & Other Details:</h2>
     {% comment %} form {% endcomment %}
     <form action="{% url 'checkoutpage' %}" method="POST">
@@ -21,6 +26,7 @@
               id="name"
               name="name"
               placeholder="Enter Your Name"
+              required
             />
           </div>
           <div class="form-group col-md-6">
@@ -42,6 +48,7 @@
             id="Address1"
             name="address1"
             placeholder="1234 Main St"
+            required
           />
         </div>
         <div class="form-group">
@@ -63,6 +70,7 @@
               id="City"
               name="city"
               placeholder="Enter Your City"
+              required
             />
           </div>
           <div class="form-group col-md-4">
@@ -73,6 +81,7 @@
               id="state"
               name="state"
               placeholder="Enter Your State"
+              required
             />
           </div>
           <div class="form-group col-md-2">
@@ -83,6 +92,7 @@
               id="Zip"
               name="zip_code"
               placeholder="Enter Your zipcode"
+              required
             />
           </div>
           <div class="form-group col-md-6">
@@ -93,6 +103,7 @@
               id="phone"
               name="phone_no"
               placeholder="Enter Your Phone no"
+              required
             />
           </div>
         </div>
@@ -103,6 +114,7 @@
 {% block script %}
 <script>
 var sum = 0 ;
+var price = 0;
   if (localStorage.getItem("cart") == null) {
     var cart = {};
   } else {
@@ -114,14 +126,19 @@ if ($.isEmptyObject(cart)){
 }
 else{
   for (item in cart) {
+    let itemprice = cart[item][2];
     let product_name = cart[item][1];
     let qty = cart[item][0];
     sum = sum + qty;
-    mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">${product_name}<span class="badge badge-primary badge-pill">${qty}</span></li>`;
+    price = price + qty* itemprice
+    main = itemprice*qty
+    mystr = `<li class="list-group-item d-flex justify-content-between align-items-center"><h6>${product_name}</h6><span class="badge badge-primary badge-pill"><h6>Qty : ${qty} -  &#x20B9;${main}</h6></li>`;
     $('#items').append(mystr);
   }
+
 }
 document.getElementById('cart').innerHTML = sum
+document.getElementById('totalprice').innerHTML = price
 $('#items_json').val(JSON.stringify(cart));
 localStorage.clear();
 </script>

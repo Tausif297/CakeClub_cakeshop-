@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Katibeh&family=Space+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Keania+One&family=Trispace:wght@300&display=swap');
+
 #sec1{
+    color: #42929d;
     border-bottom: 1px solid #42929d;
     width: 100%;
     height: 90vh;
@@ -37,23 +39,10 @@
 .main_txt3{
     position: absolute;
     margin-top: 35%;
-    width: 28%;
-    transform: translate(100%, 10%);
+    transform: translate(26%, 10%);
+    font-size: 22px;
 }
-.main_txt3 a{
-    text-decoration: none;
-    background: #42929d;
-    color:white;
-    padding: 2%;
-    border-radius: 25px 0px;
-}
-.main_txt3 a:hover{
-    padding: 2%;
-    text-decoration: none;
-    color: white;
-    background: #9aa7b2;
-    border:1px solid #42929d;
-}
+
 .cc{
     width: 22%;
     transform: translate(340%, 50%);
@@ -62,11 +51,6 @@
 .cake{
     width: 100%;
     height: 400px;
-}
-
-#sec2{
-    font-family: 'Katibeh', cursive;
-    font-size: 28px;
 }
 .row{
     margin: auto;
@@ -77,15 +61,163 @@
 .card-img-top{
     height: 250px;
 }
-#sec3{
-    border: 2px solid #42929d;
+/* sec 2 */
+#sec2{
+    /* background: url(/static/images/sec2.jpg); */
+    background-size: cover;
+    background-clip: content-box;
+}
+.tx-bx1{
+    font-family: 'Cinzel', serif;
+    color: white;
+    margin-top: 10%;
+    margin-bottom: -3%;
+    position: relative;
+}
+.tx-bx2 a{
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    background-color: #42929d;
+    border-radius: 50px;
+    text-decoration: none;
+    padding: 0.7% 3%;
+    color: white;
+}
+.tx-bx2 a:hover{
+    background: lightgray;
+    color: black;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+}
+.tx-bx2 a::after{
+    content: '';
+    clip-path: circle(50% at 80% 19%);
+    z-index: 1;
 }
 #sec4{
-    font-family: 'Katibeh', cursive;
-    font-size: 28px;    
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    background: url(/static/images/bg2.png);
+    margin-bottom: -15px;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 3%;
+    height: 86vh;
+}
+#sec4 .container{
+    font-weight: 800;
+}
+#sec4 h5,p{
+    font-weight: 800;
 }
 
-#sec5{
-    font-family: 'Katibeh', cursive;
-    font-size: 28px;
+/*  */
+.n-slider{
+    width: 50%;
+    border: 2px solid #42929d;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.col-txt{
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+    padding: 1%;
+    margin-left: 5%;
+    color: #42929d;
+    font-weight: 700;
+    margin-top: 8%;
+}
+#sec6{
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+    color: #42929d;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.panel-container {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  font-size: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.panel-container strong {
+  line-height: 20px;
+}
+
+.ratings-container {
+  display: flex;
+  margin: 20px 0;
+}
+
+.rating {
+  flex: 1;
+  cursor: pointer;
+  padding: 20px;
+  margin: 10px 5px;
+}
+
+.rating:hover,
+.rating:active {
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rating img {
+  width: 40px;
+}
+
+.rating small {
+  color: #555;
+  display: inline-block;
+  margin: 10px 0 0;
+}
+
+.rating:hover small,
+.rating:active small {
+  color: #111;
+}
+
+.btn {
+  background-color: #302d2b;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 12px 30px;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.fa-heart {
+  color: red;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+#send{
+    background: #42929d;
+    border: 1px solid black;
+    color: white;
+    box-shadow: 0px 1px 11px black;
+}
+#send:hover{
+    background: white;
+    border: 1px solid #42929d;
+    color: #42929d;
+    box-shadow: 0px 5px 11px #42929d;
 }

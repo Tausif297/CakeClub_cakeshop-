@@ -38,6 +38,9 @@ def register(request):
                 myuser.save()
                 registeruser=Register(name=name,Phone=Phone,Email=Email,Password=Password)
                 registeruser.save()
+                user=authenticate(request,username=name,password=Password)
+                if user is not None:
+                    login(request,user)
                 messages.success(request,"You have been registered as a user")
                 return redirect('/')
             except Exception:

@@ -3,17 +3,26 @@
 {% block title %}Cakes{% endblock title %}
 {% block product %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.2/tailwind.min.css" integrity="sha512-RntatPOhEcQEA81gC/esYoCkGkL7AYV7TeTPoU+R9zE44/yWxVvLIBfBSaMu78rhoDd73ZeRHXRJN5+aPEK53Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<body>
+<section id="product_sec">
+  <h1 class="pr-txt2">Search Your Favrouite One &#128522;</h1>
+    <div class = 'search-box'>
+      <input class = "search-text" id="searchtxt" type="text" placeholder = "Search Here">
+    <a href="#" class = "search-btn">
+      <i class="fas fa-search"></i>
+    </a> 
+  </div>
+</section>
 <section class="product_sec1">
-    <h1 class="text-center">Cakes</h1>
+  <h1 class="text-center pr-txt" >Our Products</h1>
      <div class="row">
     {% for Cake in cake %}
         <div class="card my-2 mx-3" style="width: 18rem;">
         <img class="card-img-top" src="/media/{{Cake.image}}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title" id="tagpr{{Cake.id}}">{{Cake.name}}</h5>
-            <h5 class="card-title" id="prcpr{{cake.id}}"> &#x20B9; {{Cake.price}}</h5>
-            <p class="card-text">{{Cake.desc}}</p>
+            <h4 class="card-title" id="tagpr{{Cake.id}}">{{Cake.name}}</h4>
+            <h5 class="card-title"> &#x20B9; <span id="pricepr{{Cake.id}}">{{Cake.price}}</span></h5>
+            <p class="card-text" style="text-transform:lowercase;">{{Cake.desc}}</p>
             <span id="divpr{{Cake.id}}" class="divpr">
             <button id="pr{{Cake.id}}" class="btn btn-primary cart">Add to cart</button>
             </span>
@@ -40,7 +49,8 @@
     } else {
       qty = 1;
       product_name = document.getElementById('tag'+idstr).innerHTML;
-      cart[idstr] = [qty, product_name];
+      price = document.getElementById('price'+idstr).innerHTML;
+      cart[idstr] = [qty, product_name, parseInt(price)];
     }
     localStorage.setItem("cart", JSON.stringify(cart));
     document.getElementById("cart").innerHTML = Object.keys(cart).length;
@@ -102,7 +112,8 @@
       i = i + 1;
     }
     popstr = popstr + "</div>" 
-    popstr = popstr + `<a href='checkout/'> <button class='btn btn-primary' id='checkout'> Checkout </button> </a> <button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button>`;
+    popstr = popstr + `{% if user.is_authenticated %}<a href='checkout/'> <button class='btn btn-primary' id='checkout'> Checkout </button> </a>
+    {% else %}<a href='{% url 'loginpage' %}'> <button class='btn btn-primary' id='checkout'> Checkout </button> </a>{% endif %} <button class='btn btn-primary' onclick='clearCart()' id='clearCart'>Clear Cart</button>`;
     document.getElementById("popcart").setAttribute("data-content", popstr);
     $("#popcart").popover("show");
   }
@@ -119,6 +130,25 @@
     cart = {};
     updateCart(cart);
   }
+</script>
+<script>
+let search = document.getElementById('searchtxt');
+search.addEventListener("input", function(){
+
+    let inputVal = search.value.toLowerCase();
+    // console.log('Input event fired!', inputVal);
+    let noteCards = document.getElementsByClassName('card');
+    Array.from(noteCards).forEach(function(element){
+        let cardTxt = element.getElementsByTagName("p")[0].innerText;
+        if(cardTxt.includes(inputVal)){
+            element.style.display = "block";
+        }
+        else{
+            element.style.display = "none";
+        }
+        // console.log(cardTxt);
+    })
+})
 </script>
 {% endblock script %}
 {% endblock product %}

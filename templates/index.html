@@ -2,6 +2,8 @@
 {% load static %}
 {% block title %}Home{% endblock title %}
 {% block index %}
+<body>
+  <!-- section 1  -->
 <section id="sec1">
     <div class="cnt_main">
         <h4><i class="fas fa-phone-square-alt"></i> +91 9699660346</h4>
@@ -19,15 +21,30 @@
     </div>
 
     <div class="main_txt3">
-        <a href="#">Order Now Some Love For Your Stomach</a>
+        <h4>Homemade Taste From Mom's Kitchen To CakeClub</h4>
     </div>
     <img src="{% static 'images/cc.png' %}" class="cc" alt="">
 </section>
-
+  <!-- section 2  -->
 <section id="sec2">
-    <h1 class="text-center">Some Trendy Cakes Of Our Shop</h1>
+  <div class="bx-1">
+      <h1 class="text-center tx-bx1">Most Popular Cakes Of Our Shop</h1>
+    <div class="row">
+    {% for Cake in cake %}
+        <div class="card my-2 mx-3 n-card" style="width: 18rem;">
+        <img class="card-img-top" src="/media/{{Cake.image}}" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">{{Cake.name}}</h5>
+        <h5 class="card-title">&#x20B9;{{Cake.price}}</h5>
+        <p class="card-text">{{Cake.desc}}</p>
+        </div>
+        </div>
+    {% endfor %}
+    </div>
+    <h5 class="text-center my-4 mb-5 tx-bx2"><a href="{% url 'cakeproductpage' %}">Order Now Some</a></h5>
+  </div>
 </section>
-
+  <!-- section 3  -->
 <section id="sec3">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -56,16 +73,84 @@
   </a>
     </div>
 </section>
-
-<section id="sec4">
-  <h1 class="text-center">Mostly Ordered Choclate Cake</h1>
+  <!-- section 4  -->
+  <section id="sec4">
+    <div class="container text-center">
+    <h3>Enjoy The Sweetness<br>Of French Bakery From The Cake Club</h3><br>
+    <h3 class="brand">Cake Club We Spread Sweetness<br>In Your Celebrations</h3><br>
+    <h5>"OUR SERVICES"</h5>
+    <p>"CAKE CLUB DELIVERY THE BEST QUALITY FRESH CAKE AT AFFORDABLE PRICE".<br>
+    "CAKE CLUB IS ONE OF THE BEST CAKE MANUFACTURER WITH GOOD IN THE TASTE<br>FOR ALL TYPES OF REGULAR AND CUSTOMIZED CAKE".<br>
+    "CAKE CLUB IS HIGHLY EXPERT AND EXPERIENCED TEAM TO MAKE ALL TYPES OF CAKES".<br>
+    "CAKE CLUB HAS VERY GOOD DELIVERY EXPERT<br>TO DELIVER TIMELY AND SAFELY OF YOUR desired cake".. </p>
+    <h5>"Good Cake Isn't Cheap & Cheap Cake Isn't Good"</h5>
+    </div>
+    </section>
+    <!-- section 5  -->
+    <section id="sec5">
+    <div class="container my-4" style="display: flex;">
+    <div id="carouselExampleIndicators" class="carousel slide n-slider" data-ride="carousel">
+    <div class="carousel-inner">
+    <div class="carousel-item active">
+    <img class="d-block w-100 cake" src="{% static 'images/adv (1).png' %}" alt="First slide">
+    </div>
+    <div class="carousel-item">
+    <img class="d-block w-100 cake" src="{% static 'images/adv (2).png' %}" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+    <img class="d-block w-100 cake" src="{% static 'images/adv (3).png' %}" alt="Third slide">
+    </div>
+    </div>
+    </div>  
+    <div class="col-txt">
+    <h1 class="text-center">What we think for you?</h1>
+    <ul>
+    <li>We always care about your safety</li>
+    <li>We use best of all products to make dekicious cake</li>
+    <li>We care your celebration our service is fast & safe</li>
+    <li>We provide You a better service  than others</li>
+    </ul>
+    </div>  
+    </div>
 </section>
-<hr>
-<section id="sec5">
-  <h1 class="text-center">Mostly Ordered Flavoured Cake</h1>
-   
-</section>
+  <!-- section 6  -->
+<section id="sec6">
+<div class="col my-4 ">
+  <hr>
+  <h1 class="text-center">Your Feedback Matter For us</h1>
+  <div id="panel" class="panel-container">
+    <strong
+      >How satisfied are you with Us <br/>With Our Service & Taste</strong
+    >
+    <div class="ratings-container">
+      <div class="rating">
+        <img
+          src="https://image.flaticon.com/icons/svg/187/187150.svg"
+          alt=""
+        />
+        <small>Unhappy</small>
+      </div>
+      <div class="rating">
+        <img
+          src="https://image.flaticon.com/icons/svg/187/187136.svg"
+          alt=""
+        />
+        <small>Neutral</small>
+      </div>
 
+      <div class="rating active">
+        <img
+          src="https://image.flaticon.com/icons/svg/187/187133.svg"
+          alt=""
+        />
+        <small>Satisfied</small>
+      </div>
+    </div>
+    <button class="btn" id="send">Send Review</button>
+  </div>
+</div>
+</section>
+  <!-- footer  -->
 <footer>
   <div class="foot">
     <img src="{% static 'images/logo.png' %}">
@@ -79,5 +164,7 @@
     </div> 
   </div>
 </footer>
+<script src="{% static 'js/index.js' %}"></script>
+</body>
 {% endblock index %}
 
